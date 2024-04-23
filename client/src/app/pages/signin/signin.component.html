@@ -1,0 +1,26 @@
+<h1>Sigin Up? =>( Working on it )</h1>
+<p>signup works!</p>
+
+<div class="flex jus-ctr">
+    <div class="container ">
+        <h2>Sign In</h2>
+        <form [formGroup]="signinForm" class="jus-ctr">
+             <div class="flex flex-col mt-10">
+                <label for="email">Email</label>
+                <input formControlName="email" class="form-inp" type="email" name="email" id="email" placeholder="Email">
+                <span  *ngIf="signinForm.hasError('required','email') && signinForm.controls['email'].dirty" class="error">*Email is Req</span>
+                <span  *ngIf="signinForm.hasError('email','email')" class="error">*Email is Invalid</span>
+            </div> <div class="flex flex-col mt-20">
+                <label for="password">Password</label>
+                <input formControlName="password" class="form-inp" type="password" name="password" id="password" placeholder="Password">
+                <span  *ngIf="signinForm.hasError('required','password') && signinForm.controls['password'].dirty" class="error">*Password is Req</span>
+            </div>
+            <button [disabled]="signinForm.invalid" [class.disabled]="signinForm.invalid" type="submit" (click)="signin()" class="mt-10 sub-btn w-100">Sign In
+            </button>
+        </form> 
+        <div class="flex jus-ctr mt-10">
+                <span>New To Store </span>
+                <a routerLink="/signup" class="signin">SignUp Here</a>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,12 @@
+footer{
+    bottom: 0;
+    position: fixed;
+    width: 100%;
+    background-color: rgb(151, 132, 132);
+    text-align: center;
+}
+p{
+    color: rgb(44, 39, 39);
+    font-weight: bold;
+    font-size: 1.1rem;
+}

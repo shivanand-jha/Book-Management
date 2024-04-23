@@ -1,0 +1,16 @@
+<h1>Welcome to Home </h1>
+<div class=" flex bg-blue parent-wrapper ">
+    
+   
+    <div class=" parent ">
+        
+        @for (item of books; track books) {
+            <div class=" child ">
+        
+                <app-card [book]="item"></app-card>
+            </div>
+            } @empty {
+            <li>There are no items.</li>
+            }
+    </div>
+</div>

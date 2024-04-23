@@ -1,0 +1,53 @@
+.flex-col{
+    display: flex;
+    flex-direction: column;
+}
+.error{
+    color: rgb(226, 43, 43);
+    font-weight: bold;
+}
+
+.container{
+    background-color: rgba(191, 167, 123, 0.313);
+    padding: 20px;
+    border-radius: 5px;
+    width:100%;
+    max-width: 450px;
+    margin: 0 auto;
+    margin-top: 100px;
+}
+
+h2{
+    text-align: center;
+    margin: 0px;
+}
+.mt-10{
+    margin-top:10px;
+}
+
+.form-inp{
+    font-size: 1.2rem;
+    border: 2px solid rgba(202, 176, 103, 0.796);
+    border-radius: 5px;
+    padding: 2px;
+}
+.w-100{
+    width:100%;
+}
+.sub-btn{
+    padding: 7px 0px;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    background-color: rgb(11, 230, 193);
+    border: none;
+}
+
+label{
+    font-weight: 600;
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+}
+.signin{
+    color: Blue;
+    font-weight: 700;
+}

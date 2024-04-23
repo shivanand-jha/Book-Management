@@ -1,0 +1,76 @@
+/* You can add global styles to this file, and also import other style files */
+body{
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    box-sizing: border-box;
+    
+}
+
+button{
+    cursor: pointer;
+}
+
+a{
+    text-decoration: none;
+    color:rgb(24, 23, 23);
+}
+
+
+.flex{
+    display: flex;
+}
+
+.jus-ctr{
+    justify-content: center;
+}
+
+.jus-sp-bwn{
+    justify-content: space-between;
+}
+
+.jus-sp-ar{
+
+    justify-content: space-around;  
+}
+
+
+.gp-10{
+    gap: 10px;
+}
+
+.ft-bold{
+    font-weight: bold;
+}
+.ft-20{
+    font-size: 20px;
+}
+
+.disabled{
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.mt-20{
+    margin-top: 20px;
+}
+.mt-10{
+    margin-top: 10px;
+}
+.m-10{
+    margin: 10px;
+}
+.flex-wrap{
+    flex-wrap:wrap ;
+}
+
+.bg-white{
+    background-color: white;
+}
+
+.bg-gray{
+    background-color: #f2f2f2;
+}
+.bg-blue{
+    background-color: #007bff;
+}
