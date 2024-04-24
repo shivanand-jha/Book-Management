@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup,  ReactiveFormsModule, Validators } from '@angul
 import { AuthService } from '../../services/auth.service';
 import { Router, RouterLink, RouterModule, RouterOutlet } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-signin',
@@ -16,17 +17,30 @@ export class SigninComponent implements OnInit {
     authSevice = inject(AuthService);
     router  =  inject(Router);
     signinForm !: FormGroup;
-  ngOnInit(): void {
+    userService = inject(UserService);
+
+
+    userName:string = "Hello UserName";
+    
+    ngOnInit(): void {
       this.signinForm = this.fb.group({
           email: ['',Validators.compose([Validators.required,Validators.email])],
           password: ['',Validators.required]
       })
+
   }
+
+
+
+
   signin(){
     this.authSevice.signinService(this.signinForm.value).subscribe({
       next:(res)=>{
         // alert("SignIn Successfull");
         localStorage.setItem("user_id",res.data._id);
+        this.userName = res.data.userName;
+        localStorage.setItem('userName',res.data.userName);
+        console.log(res);
         this.authSevice.isLoggedIn$.next(true);
         this.router.navigate(['/home'])
         // this.authSevice.setToken(res.token);
@@ -35,5 +49,12 @@ export class SigninComponent implements OnInit {
         console.log(err);
       }
     })
+  }
+  
+
+
+
+  sendData() {
+    this.userService.changeMessage(this.userName);
   }
 }

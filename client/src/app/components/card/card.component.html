@@ -1,9 +1,11 @@
 
-<div class="mt-20 m-10">
-    <h1>{{book.title}}</h1>
-    <li>{{ book.author }}</li>
-    <li>{{ book.country }}</li>
-    <li>{{ book.language }}</li>
-    <li>{{ book.pages }}</li>
-
+<div class=" m-10">
+    <h1 class="tx-ctr" >{{book.title}}</h1>
+   <div class="flex jus-sp-ar al-ctr"><span>Author</span> <li>{{ book.author }}</li></div>
+   <div class="flex jus-sp-ar al-ctr"> <span>Country</span> <li>{{ book.country }}</li></div>
+   <div class="flex jus-sp-ar al-ctr"> <span>Year</span> <li>{{ book.year }}</li></div>
+   <div class="flex jus-sp-ar al-ctr"> <span>Language</span> <li>{{ book.language }}</li></div>
+   <div class="flex jus-sp-ar al-ctr"> <span>Pages</span> <li>{{ book.pages }}</li></div>
+   <div class="flex jus-sp-ar al-ctr"> <span>Price</span> <li>{{ book.price }}</li></div>
+   <div class="flex jus-sp-ar al-ctr"> <span>More Details</span> <a  class="bg-blue" href="{{book.link}}" target="_blank">More</a></div>
 </div>

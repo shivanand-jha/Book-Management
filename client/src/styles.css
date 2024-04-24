@@ -74,3 +74,13 @@ a{
 .bg-blue{
     background-color: #007bff;
 }
+
+input{
+    height: 1.5rem;
+}
+
+.al-ctr{
+    /* align-items: center;
+    text-align: center; */
+    align-content: center;
+}

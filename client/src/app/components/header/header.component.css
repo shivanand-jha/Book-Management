@@ -28,7 +28,7 @@
 }
 .search-btn  , .search-input{
     font-size: 18px;
-    border:2px solid rgb(212, 74, 6);
+    border:2px solid rgba(209, 148, 117, 0.519);
 }
 .search-input{
     border-radius: 7px;
@@ -39,7 +39,7 @@
     
 }
 .bg-c{
-    background-color:rgba(164, 140, 118, 0.682);
+    background-color:rgba(184, 168, 153, 0.786);
     padding: 20px 0px;
 }
 

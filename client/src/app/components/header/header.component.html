@@ -20,12 +20,13 @@
             <ng-container *ngIf="isLoggedIn">
                 <a routerLink="home">
                     <span class="nav-itms-ele"><fa-icon [icon]="faHome"></fa-icon>Home</span></a>
-                <a routerLink="cart"><span class="nav-itms-ele"><fa-icon [icon]="faCart"></fa-icon>Cart</span></a>
+                <a routerLink="create"><span class="nav-itms-ele"><fa-icon [icon]="faCart"></fa-icon>Create</span></a>
                 <a routerLink="cart"><span class="nav-itms-ele"><fa-icon [icon]="faBook"></fa-icon>Book</span></a>
                 <a routerLink="signout" (click)="logOut()"><span class="nav-itms-ele"><fa-icon
                             [icon]="faSignOut"></fa-icon>Signout</span></a>
             </ng-container>
         </div>
+        
     </nav>
 </header>
 <router-outlet></router-outlet>

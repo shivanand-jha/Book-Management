@@ -42,6 +42,7 @@ export const createBook = async (req, res, next) => {
 
     res.status(200).json(CreateSuccess(savedBook));
   } catch (error) {
+    console.error(error)
     next(error);
   }
 };
@@ -69,5 +70,16 @@ export const updateBook = async (req, res, next) => {
 };
 
 export const deleteBook = async (req, res, next) => {
-  
+  try {
+    const deleteBook = await Book.findById({_id:req.params.id});
+    if(deleteBook){
+      await Book.findByIdAndDelete(req.params.id);
+      next(CreateSuccess(200,"Book Deleted Successfully"));
+    }else{
+      return next(CreateError(404,"Book Not Found"));
+    }
+  } catch (error) {
+    console.log(error);
+    next(CreateError(500),'Internal Server Error');
+  }
 };

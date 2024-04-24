@@ -15,6 +15,11 @@ export class BookService {
   getBooks() {
     return this.http.get<Response<Book[]>>(`${apiUrls.apiServiceBook}/`);
   }
+  
+  createBookService(signupObj:any){
+    return this.http.post<any>(`${apiUrls.apiServiceBook}create`,signupObj);
+  }
+  
 }
 export type Book = {
   _id: string;
@@ -25,7 +30,7 @@ export type Book = {
   year: number;
   language: string;
   country: string;
-//   price: number;
+  price: number;
 //   description: string;
   link: string;
 };
