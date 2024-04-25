@@ -16,10 +16,15 @@ export class BookService {
     return this.http.get<Response<Book[]>>(`${apiUrls.apiServiceBook}/`);
   }
   
-  createBookService(signupObj:any){
-    return this.http.post<any>(`${apiUrls.apiServiceBook}create`,signupObj);
+  createBookService(createBookObj:any){
+    return this.http.post<any>(`${apiUrls.apiServiceBook}create`,createBookObj);
   }
   
+
+  updateBookService(updateBookObj:any){
+    return this.http.put<any>(`${apiUrls.apiServiceBook}update/:id`,updateBookObj);
+  }
+
 }
 export type Book = {
   _id: string;

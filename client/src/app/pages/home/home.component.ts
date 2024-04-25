@@ -16,6 +16,11 @@ private bookService = inject(BookService);
 books:Book[] = [];
   constructor(){}
 
+
+
+
+
+
   ngOnInit(): void {
     this.getBooks();
   }
@@ -30,5 +35,8 @@ books:Book[] = [];
       }
   })
   }
+
+
+
 
 }

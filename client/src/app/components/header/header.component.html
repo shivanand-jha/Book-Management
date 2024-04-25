@@ -25,6 +25,11 @@
                 <a routerLink="signout" (click)="logOut()"><span class="nav-itms-ele"><fa-icon
                             [icon]="faSignOut"></fa-icon>Signout</span></a>
             </ng-container>
+            <div class="nav-items flex ">
+                <ng-container *ngIf="isLoggedIn">
+                    <div class="br-5">{{userName}}</div>
+                 </ng-container>
+            </div>
         </div>
         
     </nav>

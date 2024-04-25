@@ -1,16 +1,13 @@
-
-<div class="   ">
-    
-   
-    <div class=" flex flex-wrap jus-ctr">
-        
-        @for (item of books; track books) {
-            <div class=" bg-gray  m-10 br-5 fb-3">
-        
-                <app-card [book]="item"></app-card>
-            </div>
-            } @empty {
-            <li>There are no items.</li>
-            }
+<div >
+  <div class="flex flex-wrap jus-ctr">
+    @for (item of books; track books) {
+    <div class="bg-gray m-10 br-5 fb-3">
+      <app-card [book]="item"></app-card>
     </div>
+    } @empty {
+    <li>There are no items.</li>
+    }
+  </div>
+
+
 </div>

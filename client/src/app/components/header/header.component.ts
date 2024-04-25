@@ -22,7 +22,7 @@ export class HeaderComponent implements OnInit {
   faReg = faReceipt;
   faSearch = faSearch;
 
-  @Output() userName: string='';
+   userName: string='';
 
   authService = inject(AuthService);
   isLoggedIn:boolean = false;
@@ -32,7 +32,7 @@ export class HeaderComponent implements OnInit {
     this.authService.isLoggedIn$.subscribe(res=>{
       this.isLoggedIn = this.authService.isLoggedIn();
     });
-     
+     this.userName = localStorage.getItem('userName')!;
   }
 
 

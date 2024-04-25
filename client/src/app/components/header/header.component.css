@@ -45,7 +45,7 @@
 
 .nav-items{
     font-size: 20px;
-    cursor: pointer;
+    /* cursor: pointer; */
 }
 .nav-itms-ele:hover{
     color: rgb(226, 69, 7);
@@ -77,4 +77,10 @@ a{
 }
 .gp-10{
     gap:10px;
+}
+
+.br-5{
+    /* border-radius: 5px; */
+    /* background-color: red; */
+    text-align: center;
 }

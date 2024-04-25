@@ -1,11 +1,22 @@
 
 <div class=" m-10">
     <h1 class="tx-ctr" >{{book.title}}</h1>
-   <div class="flex jus-sp-ar al-ctr"><span>Author</span> <li>{{ book.author }}</li></div>
-   <div class="flex jus-sp-ar al-ctr"> <span>Country</span> <li>{{ book.country }}</li></div>
-   <div class="flex jus-sp-ar al-ctr"> <span>Year</span> <li>{{ book.year }}</li></div>
-   <div class="flex jus-sp-ar al-ctr"> <span>Language</span> <li>{{ book.language }}</li></div>
-   <div class="flex jus-sp-ar al-ctr"> <span>Pages</span> <li>{{ book.pages }}</li></div>
-   <div class="flex jus-sp-ar al-ctr"> <span>Price</span> <li>{{ book.price }}</li></div>
-   <div class="flex jus-sp-ar al-ctr"> <span>More Details</span> <a  class="bg-blue" href="{{book.link}}" target="_blank">More</a></div>
+   <div class="flex jus-sp-bwn item al-ctr"><span>Object_ID</span> <li>{{ book._id }}</li></div>
+   <div class="flex jus-sp-bwn item al-ctr"><span>Author</span> <li>{{ book.author }}</li></div>
+   <div class="flex jus-sp-bwn item al-ctr"> <span>Country</span> <li>{{ book.country }}</li></div>
+   <div class="flex jus-sp-bwn item al-ctr"> <span>Year</span> <li>{{ book.year }}</li></div>
+   <div class="flex jus-sp-bwn item al-ctr"> <span>Language</span> <li>{{ book.language }}</li></div>
+   <div class="flex jus-sp-bwn item al-ctr"> <span>Pages</span> <li>{{ book.pages }}</li></div>
+   <div class="flex jus-sp-bwn item al-ctr"> <span>Price</span> <li>{{ book.price }}</li></div>
+   <div class="flex jus-sp-bwn item al-ctr" (mouseover)='over()' (mouseleave)="out()"> <span>More Details</span> <a *ngIf="!flg" class="bg-blue" href="{{book.link}}" target="_blank" >More</a>
+    <div  *ngIf="flg" class="flex flex-col">
+            <button routerLink="update/{{book._id}}" class="item">Update</button>
+            <button class="item">Delete</button>
+    </div>
+            
 </div>
+
+   <!-- <div class="flex jus-sp-bwn item al-ctr"> <span>More Details</span> <button class=" ">Update</button></div> -->
+</div>
+
+<router-outlet></router-outlet>

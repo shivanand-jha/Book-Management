@@ -21,6 +21,10 @@ a{
     display: flex;
 }
 
+
+.flex-col{
+    flex-direction: column;
+}
 .jus-ctr{
     justify-content: center;
 }
