@@ -40,7 +40,7 @@ export class SigninComponent implements OnInit {
         localStorage.setItem("user_id",res.data._id);
         this.userName = res.data.userName;
         localStorage.setItem('userName',res.data.userName);
-        console.log(res);
+        // console.log(res);
         this.authSevice.isLoggedIn$.next(true);
         this.router.navigate(['/home'])
         // this.authSevice.setToken(res.token);

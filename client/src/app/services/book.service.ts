@@ -6,8 +6,12 @@ import { apiUrls } from '../api.url';
   providedIn: 'root',
 })
 export class BookService {
+  static deleteBookService(id: string) {
+    throw new Error('Method not implemented.');
+  }
   http = inject(HttpClient);
-
+  // id:string = '';
+  // constructor(private http: HttpClient) {}
   // constructor(http:HttpClient){
   //     this.http=http;
   // }
@@ -15,14 +19,25 @@ export class BookService {
   getBooks() {
     return this.http.get<Response<Book[]>>(`${apiUrls.apiServiceBook}/`);
   }
+  // getBookById(id) {
+  //   return this.http.get<Response<Book[]>>(`${apiUrls.apiServiceBook}/id`);
+  // }
   
   createBookService(createBookObj:any){
     return this.http.post<any>(`${apiUrls.apiServiceBook}create`,createBookObj);
   }
   
 
-  updateBookService(updateBookObj:any){
-    return this.http.put<any>(`${apiUrls.apiServiceBook}update/:id`,updateBookObj);
+  updateBookService(id:string , updateBookObj:any){
+    return this.http.put<any>(`${apiUrls.apiServiceBook}update/${id}`,updateBookObj);
+  }
+  deleteBookService(id:string ){
+    return this.http.delete<any>(`${apiUrls.apiServiceBook}delete/${id}`);
+  }
+
+
+  getByIdBookService(id: string){
+    return this.http.get<any>(`${apiUrls.apiServiceBook}/${id}`);
   }
 
 }
@@ -30,6 +45,7 @@ export type Book = {
   _id: string;
   title: string;
 //   isbn13: string;
+  imageLink:string,
   author: string;
   pages: number;
   year: number;

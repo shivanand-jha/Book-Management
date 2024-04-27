@@ -27,7 +27,7 @@ books:Book[] = [];
   getBooks(){
     this.bookService.getBooks().subscribe({
       next : (res) => {
-        console.log(res);
+        // console.log(res);
         this.books = res.data;
       },
       error:(err)=>{

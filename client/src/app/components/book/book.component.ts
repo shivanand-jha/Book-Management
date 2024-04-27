@@ -29,6 +29,7 @@ export class BookComponent implements OnInit{
     country:['', Validators.required],
     language:['' , Validators.required],
     link:['',Validators.required],
+    imageLink:['',Validators.required],
     // user:[]
   });
  }

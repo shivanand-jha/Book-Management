@@ -1,44 +1,69 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { ActivatedRoute, Router, RouterModule } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { BookService } from '../../services/book.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-update-book',
   standalone: true,
-  imports: [FormsModule,ReactiveFormsModule ,RouterModule],
+  imports: [ CommonModule,FormsModule,ReactiveFormsModule],
   templateUrl: './update-book.component.html',
-  styleUrl: './update-book.component.css'
-})
-export class UpdateBookComponent implements OnInit{
-  // constructor() { }
-    fb = inject(FormBuilder);
-    router = inject(Router);
-    route = inject(ActivatedRoute);
-    // formDataService = inject(FormDataService);
-    bookService = inject(BookService);
-    updateBookForm !: FormGroup;
-    
-    ngOnInit(): void {
-      this.route.params.subscribe(params => {
-        const index = +params['id'];
-        this.bookService.updateBookService(index).subscribe({
-          next:(res)=>{
-            console.log(res);
-            alert("User Updated");
-            // this.createBookForm.user.value = localStorage.getItem('user_Id');
-            this.updateBookForm.reset();
-            this.router.navigate(['home']);
-          },
-          error:(err)=>{
-            alert(err.message);
-          }
-        })
-      });
-    }
+  styleUrls: ['./update-book.component.css']
+  })
+export class UpdateBookComponent implements OnInit {
+  updateBookForm !: FormGroup;
+  id: string = '';
 
-    submitForm(){
-      console.log(this.updateBookForm.value);
-     
-    }
+  constructor(
+    private fb: FormBuilder,
+    private route: ActivatedRoute,
+    private router: Router,
+    private bookService: BookService
+  ) { }
+
+  ngOnInit(): void {
+    this.updateBookForm = this.fb.group({
+      title: '',
+      author: '',
+      price: '',
+      year: '',
+      pages: '',
+      country: '',
+      language: '',
+      link: '',
+      imageLink:''
+    });
+
+    this.route.params.subscribe(params => {
+      this.id = params['id'];
+      this.loadBookData(this.id);
+    });
+  }
+
+  loadBookData(id: string): void {
+    this.bookService.getByIdBookService(id).subscribe({
+      next: (res) => {
+        this.updateBookForm.patchValue(res.data); // Populate form values
+        alert("Book data loaded by ID");
+      },
+      error: (err) => {
+        alert(err.message);
+      }
+    });
+  }
+
+  submitForm(): void {
+    console.log(this.updateBookForm.value);
+    this.bookService.updateBookService(this.id, this.updateBookForm.value).subscribe({
+      next: (res) => {
+        console.log(res);
+        alert("Book updated successfully");
+        this.router.navigate(['home']); // Navigate to home after successful update
+      },
+      error: (err) => {
+        alert(err.message);
+      }
+    });
+  }
 }

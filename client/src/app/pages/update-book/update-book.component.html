@@ -1,40 +1,43 @@
 <div class="flex jus-ctr"> 
-    <div class="container">
-        <form [formGroup]="updateBookForm" >
-            <div  class="flex flex-col">
+  <div class="container">
+      <form [formGroup]="updateBookForm" (ngSubmit)="submitForm()">
+          <div class="flex flex-col">
               <label for="title">Title:</label>
-              <input formControlName="title" type="text" id="title" name="title" class="form-inp"  formControlName="title" required placeholder="Book Title">
-            </div>
-            <div class="flex flex-col">
+              <input type="text" id="title" name="title" class="form-inp" formControlName="title" required placeholder="Book Title">
+          </div>
+          <div class="flex flex-col">
               <label for="author">Author:</label>
-              <input formControlName="author" type="text" id="author" name="author"class="form-inp"  formControlName="author" required placeholder="Author"> 
-            </div>
-            <div class="flex flex-col">
+              <input type="text" id="author" name="author" class="form-inp" formControlName="author" required placeholder="Author"> 
+          </div>
+          <div class="flex flex-col">
               <label for="price">Price:</label>
-              <input formControlName="price" type="number" id="price" name="price" class="form-inp" formControlName="price" required placeholder="Price">
-            </div>
-            <div class="flex flex-col">
-                <label for="year">Year:</label>
-                <input formControlName="year" type="number" id="year" name="year" class="form-inp" formControlName="year" required placeholder="Year">
-              </div>
-            <div class="flex flex-col">
+              <input type="number" id="price" name="price" class="form-inp" formControlName="price" required placeholder="Price">
+          </div>
+          <div class="flex flex-col">
+              <label for="year">Year:</label>
+              <input type="number" id="year" name="year" class="form-inp" formControlName="year" required placeholder="Year">
+          </div>
+          <div class="flex flex-col">
               <label for="pages">Pages:</label>
-              <input formControlName="pages" type="number" id="pages" name="pages" class="form-inp" formControlName="pages" required placeholder="Pages">
-            </div>
-            <div class="flex flex-col">
-                <label for="country">Country:</label>
-                <input formControlName="country" type="text" id="country" name="country" class="form-inp" formControlName="country" required placeholder="Country">
-              </div>
-            <div class="flex flex-col">
+              <input type="number" id="pages" name="pages" class="form-inp" formControlName="pages" required placeholder="Pages">
+          </div>
+          <div class="flex flex-col">
+              <label for="country">Country:</label>
+              <input type="text" id="country" name="country" class="form-inp" formControlName="country" required placeholder="Country">
+          </div>
+          <div class="flex flex-col">
               <label for="language">Language:</label>
-              <input formControlName="language" type="text" id="language" name="language" class="form-inp" formControlName="language" required placeholder="Language">
-            </div>
-            <div class="flex flex-col">
+              <input type="text" id="language" name="language" class="form-inp" formControlName="language" required placeholder="Language">
+          </div>
+          <div class="flex flex-col">
+            <label for="imageLink">Image Link:</label>
+            <input type="url" id="imageLink" name="imageLink" class="form-inp" formControlName="imageLink" required placeholder="image Link ">
+        </div>
+          <div class="flex flex-col">
               <label for="link">Link:</label>
-              <input  formControlName="link" type="url" id="link" name="link" class="form-inp" formControlName="link" required placeholder="About Link">
-            </div>
-            <button type="submit" (click)="submitForm()" [disabled]="updateBookForm.invalid" [class.disabled]="updateBookForm.invalid" class="mt-10 sub-btn w-100">Submit</button>
-          </form>
-          
-    </div>
+              <input type="url" id="link" name="link" class="form-inp" formControlName="link" required placeholder="About Link">
+          </div>
+          <button type="submit" [disabled]="updateBookForm.invalid" class="mt-10 sub-btn w-100">Submit</button>
+      </form>
+  </div>
 </div>
