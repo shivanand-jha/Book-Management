@@ -21,7 +21,9 @@ export class CardComponent {
   out(){
     this.flg = false;
   }
+  deleteBook({}){
 
+  }
 
   
 }
