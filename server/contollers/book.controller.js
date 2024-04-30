@@ -7,7 +7,7 @@ import { CreateSuccess } from "../utils/success.js";
 
 export const getAllBook = async (req, res, next) => {
     try {
-        const books = await Book.find();
+        const books = await Book.find().sort({_id:-1});
         if(books)
             return next(CreateSuccess(200,"Got Book Successfully", books));
         else
