@@ -45,7 +45,7 @@ export class UpdateBookComponent implements OnInit {
     this.bookService.getByIdBookService(id).subscribe({
       next: (res) => {
         this.updateBookForm.patchValue(res.data); // Populate form values
-        alert("Book data loaded by ID");
+        // alert("Book data loaded by ID");
       },
       error: (err) => {
         alert(err.message);

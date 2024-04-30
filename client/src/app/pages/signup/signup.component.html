@@ -7,25 +7,25 @@
                 <input formControlName="firstName" class="form-inp" type="text" name="firstName" id="firstName" placeholder="FirstName">
                 <span *ngIf="singupForm.hasError('required','firstName') && singupForm.controls['firstName'].dirty" class="error">*FirstName is Req</span>
             </div>
-            <div class="flex flex-col mt-20">
+            <div class="flex flex-col mt-10">
                 <label for="lastName">LastName</label>
                 <input formControlName="lastName" class="form-inp" type="text" name="lastName" id="lastName" placeholder="LastName">
                 <span *ngIf="singupForm.hasError('required','lastName') && singupForm.controls['lastName'].dirty" class="error">*LastName is Req</span>
-            </div> <div class="flex flex-col mt-20">
+            </div> <div class="flex flex-col mt-10">
                 <label for="userName">UserName</label>
                 <input formControlName="userName" class="form-inp" type="text" name="userName" id="userName" placeholder="UserName">
                 <span *ngIf="singupForm.hasError('required','userName') && singupForm.controls['userName'].dirty" class="error">*UserName is Req</span>
-            </div> <div class="flex flex-col mt-20">
+            </div> <div class="flex flex-col mt-10">
                 <label for="email">Email</label>
                 <input formControlName="email" class="form-inp" type="email" name="email" id="email" placeholder="Email">
                 <span  *ngIf="singupForm.hasError('required','email') && singupForm.controls['email'].dirty" class="error">*Email is Req</span>
                 <span  *ngIf="singupForm.hasError('email','email')" class="error">*Email is Invalid</span>
-            </div> <div class="flex flex-col mt-20">
+            </div> <div class="flex flex-col mt-10">
                 <label for="password">Password</label>
                 <input formControlName="password" class="form-inp" type="password" name="password" id="password" placeholder="Password">
                 <span  *ngIf="singupForm.hasError('required','password') && singupForm.controls['password'].dirty" class="error">*Password is Req</span>
             </div>
-            <div class="flex flex-col mt-20">
+            <div class="flex flex-col mt-10">
                 <label for="confirmPassword">Confirm Password</label>
                 <input formControlName="confirmPassword" class="form-inp" type="password" name="confirmPassword" id="confirmPassword" placeholder="Confirm Password">
                 <span *ngIf="singupForm.hasError('required','confirmPassword') && singupForm.controls['confirmPassword'].dirty" class="error">*Password is Req</span>

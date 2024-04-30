@@ -10,19 +10,12 @@ export class BookService {
     throw new Error('Method not implemented.');
   }
   http = inject(HttpClient);
-  // id:string = '';
-  // constructor(private http: HttpClient) {}
-  // constructor(http:HttpClient){
-  //     this.http=http;
-  // }
+
 
   getBooks() {
     return this.http.get<Response<Book[]>>(`${apiUrls.apiServiceBook}/`);
   }
-  // getBookById(id) {
-  //   return this.http.get<Response<Book[]>>(`${apiUrls.apiServiceBook}/id`);
-  // }
-  
+
   createBookService(createBookObj:any){
     return this.http.post<any>(`${apiUrls.apiServiceBook}create`,createBookObj);
   }
@@ -40,6 +33,8 @@ export class BookService {
     return this.http.get<any>(`${apiUrls.apiServiceBook}/${id}`);
   }
 
+  
+
 }
 export type Book = {
   _id: string;
@@ -54,6 +49,7 @@ export type Book = {
   price: number;
 //   description: string;
   link: string;
+  user: string;
 };
 
 export type Response<T> = {

@@ -1,15 +1,14 @@
-<div >
+<div class="mx-width">
   <div class="flex flex-wrap jus-ctr">
-    @for (item of books; track books) {
-    <div class="bg-gray m-10 br-5 fb-3">
+    <div class="bg-card m-10 br-5 fb-3" *ngFor="let item of pagedBooks">
       <app-card [book]="item"></app-card>
     </div>
-    } @empty {
-    <li>There are no items.</li>
-    }
+    <li *ngIf="books.length === 0">There are no items.</li>
   </div>
 
-
-  
-
+  <div class="pagination">
+    <button (click)="goToPreviousPage()" [disabled]="currentPage === 1">Previous</button>
+    <button *ngFor="let page of totalPagesArray" (click)="goToPage(page)" [class.active]="page === currentPage">{{ page }}</button>
+    <button (click)="goToNextPage()" [disabled]="currentPage === totalPages">Next</button>
+  </div>
 </div>

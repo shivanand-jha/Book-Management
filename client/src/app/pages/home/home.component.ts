@@ -14,16 +14,22 @@ export class HomeComponent implements OnInit{
 
 private bookService = inject(BookService);
 books:Book[] = [];
+
+
+currentPage: number = 1; // Current page
+itemsPerPage: number = 12; // Number of items per page
+
+
+
+
   constructor(){}
-
-
-
-
 
 
   ngOnInit(): void {
     this.getBooks();
   }
+
+
   getBooks(){
     this.bookService.getBooks().subscribe({
       next : (res) => {
@@ -38,5 +44,38 @@ books:Book[] = [];
 
 
 
+
+
+  get totalPages(): number {
+    return Math.ceil(this.books.length / this.itemsPerPage);
+  }
+
+  goToPage(pageNumber: number): void {
+    if (pageNumber >= 1 && pageNumber <= this.totalPages) {
+      this.currentPage = pageNumber;
+    }
+  }
+
+  goToPreviousPage(): void {
+    if (this.currentPage > 1) {
+      this.currentPage--;
+    }
+  }
+
+  goToNextPage(): void {
+    if (this.currentPage < this.totalPages) {
+      this.currentPage++;
+    }
+  }
+
+  get pagedBooks(): any[] {
+    const startIndex = (this.currentPage - 1) * this.itemsPerPage;
+    const endIndex = Math.min(startIndex + this.itemsPerPage, this.books.length);
+    return this.books.slice(startIndex, endIndex);
+  }
+
+  get totalPagesArray(): number[] {
+    return Array(this.totalPages).fill(0).map((x, i) => i + 1);
+  }
 
 }

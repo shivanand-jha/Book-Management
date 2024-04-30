@@ -75,7 +75,7 @@ a{
 }
 
 .bg-gray{
-    background-color: #f2f2f2;
+    background-color: #bba5a5a2;
 }
 .bg-blue{
     background-color: #007bff;
@@ -120,7 +120,7 @@ h2{
     font-size: 1.2rem;
     border: 2px solid rgba(202, 176, 103, 0.796);
     border-radius: 5px;
-    padding: 2px;
+    padding: 5px;
 }
 .w-100{
     width:100%;
@@ -146,3 +146,4 @@ label{
 label{
     margin-top:20px;
 }
+

@@ -1,24 +1,27 @@
 
-<div class=" m-10">
+<div class="  mt-0 ">
+   
+    <div class="img-div"><img src="{{book.imageLink}}" alt="{{book.title}}"></div> 
     <h1 class="tx-ctr" >{{book.title}}</h1>
-    <div><img src="{{book.imageLink}}" alt="{{book.title}}"></div> 
-   <div class="flex jus-sp-bwn item al-ctr"><span>Object_ID</span> <li>{{ book._id }}</li></div>
-   <div class="flex jus-sp-bwn item al-ctr"><span>Author</span> <li>{{ book.author }}</li></div>
-   <div class="flex jus-sp-bwn item al-ctr"> <span>Country</span> <li>{{ book.country }}</li></div>
-   <div class="flex jus-sp-bwn item al-ctr"> <span>Year</span> <li>{{ book.year }}</li></div>
-   <div class="flex jus-sp-bwn item al-ctr"> <span>Language</span> <li>{{ book.language }}</li></div>
-   <div class="flex jus-sp-bwn item al-ctr"> <span>Pages</span> <li>{{ book.pages }}</li></div>
-   <div class="flex jus-sp-bwn item al-ctr"> <span>Price</span> <li>{{ book.price }}</li></div>
-   <div id="tool">
-    <div class="flex flex-col p-10 br-7" id="tooltext">
-        <button routerLink="update/{{book._id}}" class="item">Update</button>
-        <button (click)="deleteBook(book._id)" class="item">Delete</button>
-        <a class="item tx-ctr" href="{{book.link}}" target="_blank">More</a>
-    </div>
-    <div class="flex jus-sp-bwn al-ctr mt-0">
-        <span class="item1 al-ctr tx-ctr">More</span>
-        <button class="item">More</button>
-    </div>
+   <!-- <div class="flex jus-sp-bwn item al-ctr"><span>Object_ID</span> <li>{{ book._id }}</li></div> -->
+  <div class="pd-5">
+    <div class="flex jus-sp-bwn item al-ctr"><span>Author</span> <li>{{ book.author }}</li></div>
+    <div class="flex jus-sp-bwn item al-ctr"> <span>Country</span> <li>{{ book.country }}</li></div>
+    <div class="flex jus-sp-bwn item al-ctr"> <span>Year</span> <li>{{ book.year }}</li></div>
+    <div class="flex jus-sp-bwn item al-ctr"> <span>Language</span> <li >{{ book.language }}</li></div>
+    <div class="flex jus-sp-bwn item al-ctr"> <span>Pages</span> <li>{{ book.pages }}</li></div>
+    <div class="flex jus-sp-bwn item al-ctr"> <span>Price</span> <li>{{ book.price  | currency : 'INR' }}</li></div>
+    <div id="tool">
+     <div class="flex flex-col p-10 br-7" id="tooltext">
+         <button routerLink="update/{{book._id}}" class="item">Update</button>
+         <button (click)="deleteBook(book._id)" class="item">Delete</button>
+         <a class="item tx-ctr" href="{{book.link}}" target="_blank">Wiki</a>
+     </div>
+     <div class="flex jus-sp-bwn al-ctr mt-0">
+         <span class="item1 al-ctr tx-ctr"></span>
+         <button class="item">More</button>
+     </div>
+  </div>
 </div>
 
             

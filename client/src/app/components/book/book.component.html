@@ -30,11 +30,11 @@
               <input formControlName="language" type="text" id="language" name="language" class="form-inp" formControlName="language" required placeholder="Language">
             </div>
             <div class="flex flex-col">
-              <label for="imageLink">Link:</label>
-              <input  formControlName="imageLink" type="url" id="imageLink" name="imageLink" class="form-inp" formControlName="imageLink" required placeholder="Image Link ">
+              <label for="imageLink">Image Link:</label>
+              <input  formControlName="imageLink" type="text" id="imageLink" name="imageLink" class="form-inp" formControlName="imageLink" required placeholder="Image Link ">
             </div>
             <div class="flex flex-col">
-              <label for="link">Link:</label>
+              <label for="link">About Link:</label>
               <input  formControlName="link" type="url" id="link" name="link" class="form-inp" formControlName="link" required placeholder="About Link">
             </div>
             <button type="submit" (click)="submitForm()" [disabled]="createBookForm.invalid" [class.disabled]="createBookForm.invalid" class="mt-10 sub-btn w-100">Submit</button>

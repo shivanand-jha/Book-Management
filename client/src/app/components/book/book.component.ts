@@ -18,7 +18,7 @@ export class BookComponent implements OnInit{
   router = inject(Router);
   bookService = inject(BookService);
   createBookForm !: FormGroup;
-
+  userId = localStorage.getItem('user_id');
  ngOnInit(): void {
   this.createBookForm = this.fb.group({
     title: ['' , Validators.required],
@@ -30,14 +30,14 @@ export class BookComponent implements OnInit{
     language:['' , Validators.required],
     link:['',Validators.required],
     imageLink:['',Validators.required],
-    // user:[]
+    user: [this.userId, Validators.required]
   });
  }
 
   submitForm(){
     this.bookService.createBookService(this.createBookForm.value).subscribe({
       next:(res)=>{
-        alert("User Created");
+        alert("Book Created");
         // this.createBookForm.user.value = localStorage.getItem('user_Id');
         this.createBookForm.reset();
         this.router.navigate(['home']);

@@ -4,11 +4,12 @@
             <span>Book Management</span>
         </div>
         <ng-container *ngIf="isLoggedIn">
-            <div class="search-relative">
-                <span class="search-icon"><fa-icon [icon]="faSearch" class="ft-light"></fa-icon></span><input
+            <!-- <div class="search-relative">
+                <span class="search-icon"><fa-icon [icon]="faSearch" class="ft-light"></fa-icon></span>
+                <input
                     type="text" name="search" id="search" placeholder="Search Books" class="search-input" />
                 <button class="search-btn">Search</button>
-            </div>
+            </div> -->
         </ng-container>
         <div class="nav-items flex gp-20 ft-bold">
             <ng-container *ngIf="!isLoggedIn">
@@ -21,7 +22,7 @@
                 <a routerLink="home">
                     <span class="nav-itms-ele"><fa-icon [icon]="faHome"></fa-icon>Home</span></a>
                 <a routerLink="create"><span class="nav-itms-ele"><fa-icon [icon]="faCart"></fa-icon>Create</span></a>
-                <a routerLink="cart"><span class="nav-itms-ele"><fa-icon [icon]="faBook"></fa-icon>Book</span></a>
+                <!-- <a routerLink="cart"><span class="nav-itms-ele"><fa-icon [icon]="faBook"></fa-icon>Book</span></a> -->
                 <a routerLink="signout" (click)="logOut()"><span class="nav-itms-ele"><fa-icon
                             [icon]="faSignOut"></fa-icon>Signout</span></a>
             </ng-container>
