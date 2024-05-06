@@ -12,7 +12,7 @@
     <div class="flex jus-sp-bwn item al-ctr"> <span>Pages</span> <li>{{ book.pages }}</li></div>
     <div class="flex jus-sp-bwn item al-ctr"> <span>Price</span> <li>{{ book.price  | currency : 'INR' }}</li></div>
     <div id="tool">
-     <div class="flex flex-col p-10 br-7" id="tooltext">
+     <div class="flex flex-col p-10 br-7" id="tooltext"> 
          <button routerLink="update/{{book._id}}" class="item">Update</button>
          <button (click)="deleteBook(book._id)" class="item">Delete</button>
          <a class="item tx-ctr" href="{{book.link}}" target="_blank">Wiki</a>
