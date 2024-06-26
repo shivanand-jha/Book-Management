@@ -21,8 +21,6 @@ const bookSchema = mongoose.Schema({
   year: {
     type: Number,
     required: true,
-    // min: 1000,
-    // max: 9999
   },
   pages: {
     type: Number,
@@ -42,7 +40,7 @@ const bookSchema = mongoose.Schema({
     required:true
   },
   user:{
-    type:[mongoose.Schema.Types.ObjectId],
+    type:mongoose.Schema.Types.ObjectId,
     ref: "User",
     required: true,
   }

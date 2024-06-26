@@ -71,15 +71,16 @@ export const login = async(req,res,next)=>{
 }
 
 export const registerAdmin = async (req,res,next)=>{
-    const role = await Role.find({});
+    const role = await Role.find({role:"Admin"});
     const salt = bcrypt.genSaltSync(10);
+    // console.log(req.body);
     const hashPassword = await bcrypt.hash(req.body.password, salt);
     const newUser = new User({
         firstName : req.body.firstName,
         lastName : req.body.lastName,
         userName : req.body.userName,
         email : req.body.email,
-        password : (await hashPassword).toString(),
+        password : hashPassword.toString(),
         isAdmin : true,
         roles : role
     });

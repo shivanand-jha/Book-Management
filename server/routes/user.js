@@ -4,7 +4,8 @@ import { verifyAdmin, verifyUser } from '../utils/verifyToken.js';
 
 const router = express.Router();
 
-router.get('/', verifyAdmin , getAllUsers);
+router.get('/user/', verifyAdmin , getAllUsers);
+router.get('/user/:id', verifyAdmin , getById);
 router.get('/:id', verifyUser , getById);
 
 

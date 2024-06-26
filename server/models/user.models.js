@@ -39,6 +39,10 @@ const userSchema = mongoose.Schema(
       ref: "Role",
       required: true,
     },
+    disable:{
+      type:Boolean,
+      default:false,
+    },
   },
   {
     timestamps: true,

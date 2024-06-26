@@ -33,7 +33,7 @@ itemsPerPage: number = 12; // Number of items per page
   getBooks(){
     this.bookService.getBooks().subscribe({
       next : (res) => {
-        // console.log(res);
+        console.log(res);
         this.books = res.data;
       },
       error:(err)=>{

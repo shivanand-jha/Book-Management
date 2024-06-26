@@ -37,7 +37,7 @@ app.listen(3000,()=>{
 
 app.use('/api/role', roleRouter);
 app.use("/api/auth", authRouter);
-app.use('/api/user', userRouter);
+app.use('/api/admin', userRouter);
 app.use('/api/book', bookRouter);
 //Error Handler MiddleWare 
 

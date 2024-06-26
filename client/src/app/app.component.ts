@@ -4,6 +4,7 @@ import { HeaderComponent } from "./components/header/header.component";
 import { FooterComponent } from "./components/footer/footer.component";
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faCoffee , faHome} from '@fortawesome/free-solid-svg-icons';
+import {Title} from "@angular/platform-browser";
 
 @Component({
     selector: 'app-root',
@@ -13,7 +14,11 @@ import { faCoffee , faHome} from '@fortawesome/free-solid-svg-icons';
     imports: [RouterOutlet, HeaderComponent, FooterComponent,FontAwesomeModule]
 })
 export class AppComponent {
-  title = 'client';
+
+  constructor(private title : Title){
+    title.setTitle("Book Store");
+  }
+  // title = 'Book Store';
   faHome = faHome;
   faCoffee = faCoffee;
 }

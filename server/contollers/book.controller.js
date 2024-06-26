@@ -1,8 +1,9 @@
+import mongoose from "mongoose";
 import Book from "../models/book.models.js";
 import User from "../models/user.models.js";
 import { CreateError } from "../utils/error.js";
 import { CreateSuccess } from "../utils/success.js";
-
+const { ObjectId } = mongoose.Types;
 
 
 export const getAllBook = async (req, res, next) => {
@@ -82,4 +83,22 @@ export const deleteBook = async (req, res, next) => {
     console.log(error);
     next(CreateError(500),'Internal Server Error');
   }
+};
+
+
+// Function to find books by user ID
+export const findBooksByUserId = async (req, res, next) => {
+    const { userId } = req.body; 
+    try {
+        const books = await Book.find({ user: userId })
+
+        if(books){
+          return next(CreateSuccess(200,"Got Book Successfully", books));
+      }else{
+          return next(CreateError(404, "Book Not Found"));
+      }
+    } catch (error) {
+        console.error('Error finding books:', error);
+        res.status(500).json({ message: 'Internal Server Error' });
+    }
 };
