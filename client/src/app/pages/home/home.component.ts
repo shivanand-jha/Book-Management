@@ -14,7 +14,8 @@ export class HomeComponent implements OnInit{
 
 private bookService = inject(BookService);
 books:Book[] = [];
-
+id:any = localStorage.getItem("user_id");
+isAdmin: boolean = localStorage.getItem('isAdmin') === 'true';
 
 currentPage: number = 1; // Current page
 itemsPerPage: number = 12; // Number of items per page
@@ -26,12 +27,19 @@ itemsPerPage: number = 12; // Number of items per page
 
 
   ngOnInit(): void {
-    this.getBooks();
+  //  this.getBook();
+  this.getBook();
   }
 
-
+getBook(){
+  if(this.isAdmin){
+      this.getAll();
+  }else{
+    this.getBooks();
+  }
+}
   getBooks(){
-    this.bookService.getBooks().subscribe({
+    this.bookService.getBooks(this.id).subscribe({
       next : (res) => {
         console.log(res);
         this.books = res.data;
@@ -40,7 +48,20 @@ itemsPerPage: number = 12; // Number of items per page
         console.log(err);
       }
   })
-  }
+}
+
+  getAll(){
+    this.bookService.getAllBook().subscribe({
+      next : (res) => {
+        this.books = res.data;
+        console.log(this.books);
+        },
+        error:(err)=>{
+          console.log(err);
+        }
+      }
+  )}
+  
 
 
 

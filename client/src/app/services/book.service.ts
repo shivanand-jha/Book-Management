@@ -11,8 +11,11 @@ export class BookService {
   }
   http = inject(HttpClient);
 
-  getBooks() {
-    return this.http.get<Response<Book[]>>(`${apiUrls.apiServiceBook}/`);
+  getBooks(id:string) {
+    return this.http.get<Response<Book[]>>(`${apiUrls.apiServiceBook}/user/${id}`);
+  }
+  getAllBook(){
+    return this.http.get<Response<Book[]>>(`${apiUrls.apiServiceBook}`);
   }
 
   createBookService(createBookObj: any) {

@@ -33,10 +33,10 @@ export const register = async (req,res,next)=>{
 export const login = async(req,res,next)=>{
     try {
         const user  = await User.findOne({email:req.body.email})
-        .populate("roles","role");
+        // .populate("roles","role");
         
 
-        const {roles} = user;
+        // const {roles} = user;
        
         if (!user) {
              
@@ -52,15 +52,18 @@ export const login = async(req,res,next)=>{
 
         const token = jwt.sign({
             id:user._id,
-            isAdmin:user.isAdmin,
-            roles:roles},process.env.JWT_SECRET);
-
+            isAdmin:user.isAdmin
+            // roles:roles
+        },process.env.JWT_SECRET);
+        console.log(token);
         res.cookie("access_token",token,{httpOnly:true}).status(200).json({
             status:200,
             message:"User Login Successfully",
-            data:user
+            data:user,
+            // token:token
         })
-        // return next(CreateSuccess(200,"User Login Successfully"))
+        
+        return next(CreateSuccess(200,"User Login Successfully"))
     } catch (error) {
        
 

@@ -88,9 +88,9 @@ export const deleteBook = async (req, res, next) => {
 
 // Function to find books by user ID
 export const findBooksByUserId = async (req, res, next) => {
-    const { userId } = req.body; 
+    // const { userId } = req.params; 
     try {
-        const books = await Book.find({ user: userId })
+        const books = await Book.find({ user: req.params.id })
 
         if(books){
           return next(CreateSuccess(200,"Got Book Successfully", books));

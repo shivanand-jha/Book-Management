@@ -39,6 +39,8 @@ export class SigninComponent implements OnInit {
         // alert("SignIn Successfull");
         localStorage.setItem("user_id",res.data._id);
         this.userName = res.data.userName;
+        localStorage.setItem("isAdmin",res.data.isAdmin);
+        // console.log(res.data.isAdmin + "Hello Admin");
         localStorage.setItem('userName',res.data.userName);
         // console.log(res);
         this.authSevice.isLoggedIn$.next(true);

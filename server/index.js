@@ -4,6 +4,7 @@ import roleRouter from './routes/role.js';
 import authRouter from './routes/auth.js';
 import userRouter from './routes/user.js';
 import bookRouter from './routes/book.js';
+// import adminRouter from './routes/admin.js';
 import dotenv from 'dotenv';
 import cookieParser from 'cookie-parser';
 import cors from 'cors';
@@ -37,7 +38,8 @@ app.listen(3000,()=>{
 
 app.use('/api/role', roleRouter);
 app.use("/api/auth", authRouter);
-app.use('/api/admin', userRouter);
+app.use('/api/user', userRouter);
+// app.use('/api/admin', adminRouter);
 app.use('/api/book', bookRouter);
 //Error Handler MiddleWare 
 
