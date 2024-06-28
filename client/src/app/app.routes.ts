@@ -4,7 +4,9 @@ import { SignupComponent } from './pages/signup/signup.component';
 import { HomeComponent } from './pages/home/home.component';
 import { BookComponent } from './components/book/book.component';
 import { UpdateBookComponent } from './pages/update-book/update-book.component';
-import { authGuard } from './auth.guard';
+import { authGuard,adminAuthGuard } from './auth.guard';
+import { UserpermitComponent } from './pages/userpermit/userpermit.component';
+import { UsersComponent } from './pages/users/users.component';
 
 export const routes: Routes = [
     {path:"signin",component:SigninComponent},
@@ -13,8 +15,17 @@ export const routes: Routes = [
     {path:"create",component:BookComponent, canActivate:[authGuard]},
     {
         path:"home/update/:id",
-        component:UpdateBookComponent
+        component:UpdateBookComponent,canActivate:[authGuard]
     },
+    {
+        path:"userpermit",
+        component:UserpermitComponent,canActivate:[adminAuthGuard]
+    },{
+        path:"users",
+        component:UsersComponent,
+        canActivate:[adminAuthGuard]
+    }
+
 ];
 
 

@@ -27,51 +27,51 @@ export const register = async (req,res,next)=>{
 
 
 
-
-
-
-export const login = async(req,res,next)=>{
+export const login = async (req, res, next) => {
     try {
-        const user  = await User.findOne({email:req.body.email})
-        // .populate("roles","role");
-        
+        // Attempt to find user by email
+        const user = await User.findOne({ email: req.body.email }).populate("roles", "role");
 
-        // const {roles} = user;
-       
+        // Check if user exists
         if (!user) {
-             
-            return next(CreateError(404,"User not found"));
-
-          }
-          
-        const isPasswordCorrect  = await bcrypt.compare(req.body.password,user.password);
-        if(!isPasswordCorrect){
-            return next(CreateError(400,"password Incorrect"));
+            return next(CreateError(404, "User not found"));
         }
 
+        // Compare passwords
+        const isPasswordCorrect = await bcrypt.compare(req.body.password, user.password);
+        if (!isPasswordCorrect) {
+            return next(CreateError(400, "Password Incorrect"));
+        }
 
+        // Generate JWT token
         const token = jwt.sign({
-            id:user._id,
-            isAdmin:user.isAdmin
-            // roles:roles
-        },process.env.JWT_SECRET);
-        console.log(token);
-        res.cookie("access_token",token,{httpOnly:true}).status(200).json({
-            status:200,
-            message:"User Login Successfully",
-            data:user,
-            // token:token
-        })
-        
-        return next(CreateSuccess(200,"User Login Successfully"))
-    } catch (error) {
-       
+            id: user._id,
+            isAdmin: user.isAdmin,
+            roles: user.roles
+        }, process.env.JWT_SECRET);
 
-        const a = error.toString();
-        console.log(a);
-        return next(CreateError(500,"internal server error"));
+        // Set cookie with access token and send response
+        res.cookie("access_token", token, { httpOnly: true }).status(200).json({
+            status: 200,
+            message: "User Login Successfully",
+            data: user
+        });
+
+        // Return success message through next middleware
+        return next(CreateSuccess(200, "User Login Successfully"));
+    } catch (error) {
+        // Handle any errors
+        console.log(error.toString()); // Log the error for debugging purposes
+
+        // Return internal server error
+        return next(CreateError(500, "Internal Server Error"));
     }
 }
+
+
+
+
+
 
 export const registerAdmin = async (req,res,next)=>{
     const role = await Role.find({role:"Admin"});

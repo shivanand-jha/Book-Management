@@ -11,3 +11,13 @@ export const authGuard: CanActivateFn = (route, state) => {
   }
   return true;
 };
+export const adminAuthGuard: CanActivateFn = (route, state) => {
+  let isAdmin  = localStorage.getItem("isAdmin");
+  const router = inject(Router);
+  if(!isAdmin){
+    alert("Please signin as Admin");
+    router.navigate(['/signin']);
+    return false;
+  }
+  return true;
+};

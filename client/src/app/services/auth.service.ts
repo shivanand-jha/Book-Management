@@ -10,6 +10,7 @@ export class AuthService {
   http = inject(HttpClient);
 
   isLoggedIn$ = new BehaviorSubject<boolean>(false);
+  // isAdmin$ = new BehaviorSubject<boolean>(false);
 
   signupService(signupObj: any) {
     return this.http.post<any>(`${apiUrls.authServiceApi}signup`, signupObj);
@@ -23,7 +24,11 @@ export class AuthService {
     return !!localStorage.getItem('user_id');
   }
 
-  isLoggedOut() {
-    return !this.isLoggedIn();
-  }
+  // isAdmin(){
+  //   return !!localStorage.getItem('isAdmin');
+  // }
+
+  // isLoggedOut() {
+  //   return !this.isLoggedIn();
+  // }
 }

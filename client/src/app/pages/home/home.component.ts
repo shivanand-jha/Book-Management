@@ -16,9 +16,10 @@ private bookService = inject(BookService);
 books:Book[] = [];
 id:any = localStorage.getItem("user_id");
 isAdmin: boolean = localStorage.getItem('isAdmin') === 'true';
-
-currentPage: number = 1; // Current page
-itemsPerPage: number = 12; // Number of items per page
+currentPage = 1;
+itemsPerPage: number = 12; 
+totalCount:number= 0;
+totalPages:number = 1;
 
 
 
@@ -50,49 +51,37 @@ getBook(){
   })
 }
 
-  getAll(){
-    this.bookService.getAllBook().subscribe({
-      next : (res) => {
-        this.books = res.data;
-        console.log(this.books);
-        },
-        error:(err)=>{
-          console.log(err);
-        }
-      }
-  )}
   
-
-
-
-
-
-  get totalPages(): number {
-    return Math.ceil(this.books.length / this.itemsPerPage);
-  }
+  getAll():void{
+  this.bookService.getAllBook(this.currentPage, this.itemsPerPage)
+      .subscribe(response => {
+        this.books = response.items;
+        this.totalCount = response.totalCount;
+        this.totalPages = Math.ceil(this.totalCount / this.itemsPerPage);
+      });
+    }
 
   goToPage(pageNumber: number): void {
     if (pageNumber >= 1 && pageNumber <= this.totalPages) {
       this.currentPage = pageNumber;
+      this.getAll();
     }
   }
 
   goToPreviousPage(): void {
     if (this.currentPage > 1) {
       this.currentPage--;
+      this.getAll();
+
     }
   }
 
   goToNextPage(): void {
     if (this.currentPage < this.totalPages) {
       this.currentPage++;
-    }
-  }
+      this.getAll();
 
-  get pagedBooks(): any[] {
-    const startIndex = (this.currentPage - 1) * this.itemsPerPage;
-    const endIndex = Math.min(startIndex + this.itemsPerPage, this.books.length);
-    return this.books.slice(startIndex, endIndex);
+    }
   }
 
   get totalPagesArray(): number[] {

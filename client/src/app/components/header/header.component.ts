@@ -22,23 +22,31 @@ export class HeaderComponent implements OnInit {
   faReg = faReceipt;
   faSearch = faSearch;
 
-   userName: string='';
+  userName: string='';
 
   authService = inject(AuthService);
   isLoggedIn:boolean = false;
-
+  isAdmin:boolean = false;
 
   ngOnInit(): void {
+    // this.authService.isAdmin$.subscribe(res =>{
+      this.isAdmin = localStorage.getItem("isAdmin")=="true";
+    // });
+  
     this.authService.isLoggedIn$.subscribe(res=>{
       this.isLoggedIn = this.authService.isLoggedIn();
     });
-     this.userName = localStorage.getItem('userName')!;
+    
+    this.userName = localStorage.getItem('userName')!;
   }
 
-
+  // ngOnChange(){
+    
+  // }
   logOut() {
     localStorage.removeItem('userName');
     localStorage.removeItem('user_id');
+    localStorage.removeItem('isAdmin');
     // this.authService.isLoggedIn$.next(false);
     window.location.reload();
     this.router.navigate(['/signin']);

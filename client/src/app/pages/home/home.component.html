@@ -1,6 +1,6 @@
 <div class="mx-width">
   <div class="flex flex-wrap jus-ctr">
-    <div class="bg-card m-10 br-5 fb-3" *ngFor="let item of pagedBooks">
+    <div class="bg-card m-10 br-5 fb-3" *ngFor="let item of books">
       <app-card [book]="item"></app-card>
     </div>
     <li *ngIf="books.length === 0">There are no items.</li>

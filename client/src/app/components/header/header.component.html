@@ -22,7 +22,11 @@
                 <a routerLink="home">
                     <span class="nav-itms-ele"><fa-icon [icon]="faHome"></fa-icon>Home</span></a>
                 <a routerLink="create"><span class="nav-itms-ele"><fa-icon [icon]="faCart"></fa-icon>Create</span></a>
-                <!-- <a routerLink="cart"><span class="nav-itms-ele"><fa-icon [icon]="faBook"></fa-icon>Book</span></a> -->
+                <!-- <a routerLink="cart"><span class="nav-itms-ele"><fa-icon [icon]="faBook"></fa-icon>Book</span></a> --> 
+                <ng-container *ngIf="isAdmin">
+                    <a routerLink="users"> User Dropdown</a>
+                    <a routerLink="userpermit"> User Permit</a>
+                </ng-container>         
                 <a routerLink="signout" (click)="logOut()"><span class="nav-itms-ele"><fa-icon
                             [icon]="faSignOut"></fa-icon>Signout</span></a>
             </ng-container>
@@ -31,7 +35,9 @@
                     <div class="br-5">{{userName}}</div>
                  </ng-container>
             </div>
+            
         </div>
+        
         
     </nav>
 </header>
