@@ -7,7 +7,7 @@ const router = express.Router();
 router.get('/user',  getAllUsers);
 router.get('/user/:id',  getByUserId);
 router.get('/:id', verifyUser , getByUserId);
-router.put('/updateuser/:userId', verifyAdmin, updateUser);
+router.put('/updateuser/:id',  updateUser);
 
 
 

@@ -18,7 +18,8 @@ export class AppComponent {
   constructor(private title : Title){
     title.setTitle("Book Store");
   }
-  // title = 'Book Store';
+
+
   faHome = faHome;
   faCoffee = faCoffee;
 }

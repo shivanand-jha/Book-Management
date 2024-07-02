@@ -24,8 +24,8 @@
                 <a routerLink="create"><span class="nav-itms-ele"><fa-icon [icon]="faCart"></fa-icon>Create</span></a>
                 <!-- <a routerLink="cart"><span class="nav-itms-ele"><fa-icon [icon]="faBook"></fa-icon>Book</span></a> --> 
                 <ng-container *ngIf="isAdmin">
-                    <a routerLink="users"> User Dropdown</a>
-                    <a routerLink="userpermit"> User Permit</a>
+                    <a routerLink="users" > <span class="nav-itms-ele">User Dropdown</span></a>
+                    <a routerLink="userpermit"> <span class="nav-itms-ele">User Permit</span></a>
                 </ng-container>         
                 <a routerLink="signout" (click)="logOut()"><span class="nav-itms-ele"><fa-icon
                             [icon]="faSignOut"></fa-icon>Signout</span></a>

@@ -1,16 +1,26 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
 import { apiUrls } from '../api.url';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AdminService {
   http = inject(HttpClient);
+  
   constructor() { }
   getUser(){
     return this.http.get<Response<User[]>>(`${apiUrls.apiServiceUser}user`);
   }
+
+
+
+  updateUserStatus(userId: string): Observable<any> {
+    return this.http.put<any>(`${apiUrls.apiServiceUser}updateuser/${userId}`,{});
+  }
+
+
 }
 export type Response<T> = {
   success: boolean;
@@ -20,8 +30,10 @@ export type Response<T> = {
 };
 export type User ={
   firstName:string,
-  id:string,
+  _id:string,
   lastName:string,
   userName:String,
-  img:string  
+  img:string  ,
+  email:String,
+  disable:boolean
 }

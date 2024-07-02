@@ -1,6 +1,25 @@
-<h1>User Dropdown</h1>
-        @for (user of users; track users) {
-            <p> {{user.firstName}}</p>
-            <p> {{user.lastName}}</p>
-            <br>
-        }
+
+<div class="mx-width">
+    <div class="flex  mr-10 fb-30">
+        <div></div>
+        <div class="flex mt-10 gp-10">
+            <h3>Select User</h3>
+            <select (change)="onSelectionChange($event)">
+                <option [defaultSelected]="">select any user</option>
+                @for (user of users; track users) {
+                <option value="{{user._id}}">{{user.userName}}</option>
+                }
+            </select>
+        </div>
+        <div></div>
+    </div>
+    
+    <div class="flex flex-wrap jus-ctr">
+
+        <div class="bg-card m-10 br-5 fb-3" *ngFor="let item of books">
+            <app-card [book]="item"></app-card>
+        </div>
+        <li *ngIf="books.length === 0">There are no items.</li>
+      
+    </div>
+</div>

@@ -31,20 +31,28 @@ export const getByUserId = async(req,res,next)=>{
 
  // Adjust this import based on your project's structure
 
+
+
  export const updateUser = async (req, res, next) => {
-    const userId = req.params.userId;
-    const { disable } = req.body;
-  
-    try {
-      const user = await User.findByIdAndUpdate(userId, { disable }, { new: true });
-  
-      if (!user) {
-        return res.status(404).json({ error: "User not found" });
-      }
-  
-      return res.json({ message: "User updated successfully", user });
-    } catch (error) {
-      console.error("Error updating user:", error.message);
-      return next(CreateError(500, "Internal Server Error"));
-    }
-  };
+   const { id } = req.params;
+
+ 
+   try {
+     const updatedUser = await User.findById(id);
+
+ 
+     if (!updatedUser) {
+       return res.status(404).json({ error: 'User not found' });
+     }    
+
+     updatedUser.disable = !updatedUser.disable;
+ 
+     await updatedUser.save();
+ 
+     return res.json({ message: 'User updated successfully', user: updatedUser });
+   } catch (error) {
+     console.error('Error updating user:', error.message);
+     return res.status(500).json({ error: 'Internal Server Error' });
+   }
+ };
+ 

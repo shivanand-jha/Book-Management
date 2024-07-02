@@ -36,6 +36,9 @@ export const login = async (req, res, next) => {
         if (!user) {
             return next(CreateError(404, "User not found"));
         }
+        if(user.disable){
+            return next(CreateError(403, "Your account has been disabled. Please connect with your admin to resolve the issue."));
+        }
 
         // Compare passwords
         const isPasswordCorrect = await bcrypt.compare(req.body.password, user.password);

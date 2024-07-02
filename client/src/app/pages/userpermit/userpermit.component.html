@@ -1,17 +1,35 @@
-<div class="user-card  flex-col error jus-sp-bwn mt-10">
-  <div class="user-card__avatar">
-    <p>Hello</p>
-  </div>
-  <div class="user-card__avatar">
-    <p>Hello</p>
-  </div>
-  <div class="user-card__avatar">
-    <p>Hello</p>
-  </div>
-  <div class="user-card__avatar">
-    <p>Hello</p>
-  </div>
-  <div class="user-card__avatar">
-    <p>Hello</p>
+<div class="mx-width">
+  <div class="flex flex-wrap jus-ctr">
+    <div class="bg-card m-10 br-5 fb-3" >
+      <div class="table-responsive">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>SNo.</th>
+              <th>FirstName</th>
+              <th>LastName</th>
+              <th>UserName</th>
+              <th>Email</th>
+              <th>Permit</th>
+            </tr>
+          </thead>
+          <tbody>
+            @for(user of users; track users;let idx = $index){
+              <tr >
+                <td> {{idx}}</td>
+                <td>{{ user.firstName }}</td>
+                <td>{{ user.lastName }}</td>
+                <td>{{ user.userName }}</td>
+                <td>{{ user.email }}</td>
+                <td><button class="btn" [class.btn-danger]="user.disable" [class.btn-success]="!user.disable"
+                  (click)="toggleDisableUser(user)">
+            {{ user.disable ? 'Enable' : 'Disable' }}
+          </button></td>
+              </tr>
+            }
+          </tbody>
+        </table>
+      </div>
+    </div>
   </div>
 </div>

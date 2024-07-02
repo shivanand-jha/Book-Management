@@ -2,13 +2,14 @@ import { Component, OnInit, inject } from '@angular/core';
 import { Book, BookService } from '../../services/book.service';
 import { CommonModule } from '@angular/common';
 import { CardComponent } from "../../components/card/card.component";
+import { HeaderComponent } from "../../components/header/header.component";
 
 @Component({
     selector: 'app-home',
     standalone: true,
     templateUrl: './home.component.html',
     styleUrl: './home.component.css',
-    imports: [CommonModule, CardComponent]
+    imports: [CommonModule, CardComponent, HeaderComponent]
 })
 export class HomeComponent implements OnInit{
 
@@ -30,6 +31,7 @@ totalPages:number = 1;
   ngOnInit(): void {
   //  this.getBook();
   this.getBook();
+
   }
 
 getBook(){
