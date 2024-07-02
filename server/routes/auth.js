@@ -1,8 +1,8 @@
 import express from 'express';
-import { register , login, registerAdmin } from '../contollers/auth.controller.js';
+import {  login, registerAdmin, registerUser } from '../contollers/auth.controller.js';
 const router = express.Router();
 
-router.post("/signup",register);
+router.post("/signup",registerUser);
 router.post("/signin",login);
 // router.get("/user",);   
 

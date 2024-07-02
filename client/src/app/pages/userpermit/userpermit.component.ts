@@ -10,6 +10,8 @@ import { CommonModule } from '@angular/common';
   styleUrl: './userpermit.component.css'
 })
 export class UserpermitComponent implements OnInit {
+
+
   private adminService: AdminService = inject(AdminService);
   users:User[] = [];
 
@@ -20,6 +22,8 @@ export class UserpermitComponent implements OnInit {
     this.getUsers();
   }
   
+
+
   getUsers(){
     this.adminService.getUser().subscribe({
       next : (res) => {
@@ -30,8 +34,12 @@ export class UserpermitComponent implements OnInit {
         console.log(err);
       }
   })
-
 }
+
+
+
+
+
 toggleDisableUser(user: User): void {
   this.adminService.updateUserStatus(user._id).subscribe({
     next: (response) => {
@@ -44,9 +52,6 @@ toggleDisableUser(user: User): void {
     }
   });
 }
-
-
-
 
 
 }

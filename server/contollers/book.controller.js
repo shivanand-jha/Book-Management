@@ -125,7 +125,7 @@ export const deleteBook = async (req, res, next) => {
 };
 
 
-// Function to find books by user ID
+// Controller to find books by userId
 export const findBooksByUserId = async (req, res, next) => {
     // const { userId } = req.params; 
     try {

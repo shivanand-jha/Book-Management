@@ -38,7 +38,6 @@ export class BookComponent implements OnInit{
     this.bookService.createBookService(this.createBookForm.value).subscribe({
       next:(res)=>{
         alert("Book Created");
-        // this.createBookForm.user.value = localStorage.getItem('user_Id');
         this.createBookForm.reset();
         this.router.navigate(['home']);
       },

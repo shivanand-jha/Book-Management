@@ -59,11 +59,10 @@ export const createRole = async (req, res, next) => {
       }
     else{
         return next(CreateError(404,"No Roles Found"));
-        // return res.status(404).send("No Roles Found");
+        
     }
     } catch (error) {
         return next(CreateError(500,"Internal Server Error"));
-    //   return res.status(500).send("Internal Server Error");
     }
   };
 
